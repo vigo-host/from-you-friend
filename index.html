@@ -1,58 +1,120 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Surat Untukmu 💌</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <div class="credit">
-    Credit by Vigoo<br>
-    TikTok: @.ovidio_guzman
-</div>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surat Untukmu 💌</title>
 <style>
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:Arial, sans-serif;
+    color:#333;
+}
+
+/* SURAT CARD */
+.letter-card{
+    background:white;
+    width:90%;
+    max-width:380px;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+    animation:fadeIn .6s ease;
+}
+
+.envelope{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff5e78;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+/* HIDDEN SURAT */
+.hidden{
+    display:none;
+}
+
+/* CREDIT */
 .credit{
-    position:fixed;       /* tetap berada di layar meski scroll */
-    bottom:25px;          /* jarak dari bawah layar */
-    left:50%;             /* center horizontal */
-    transform:translateX(-50%); /* benar-benar di tengah */
+    position:fixed;
+    bottom:25px;       /* jarak dari bawah layar */
+    left:50%;          
+    transform:translateX(-50%); 
     text-align:center;
     font-size:12px;
     opacity:0.7;
     color:white;
     line-height:1.4;
-    pointer-events:none;  /* agar tidak mengganggu klik tombol play */
+    pointer-events:none;  /* agar tidak menghalangi klik */
 }
-  
+
+/* ANIMASI */
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(.95);}
+    to{opacity:1; transform:scale(1);}
+}
 </style>
-  <div class="letter-card" id="letterClosed">
+</head>
+<body>
+
+<!-- SURAT TERTUTUP -->
+<div class="letter-card" id="letterClosed">
     <div class="envelope">💌</div>
     <h2>Ada surat buat kamu</h2>
     <button id="openLetter">Buka Surat</button>
-  </div>
+</div>
 
-  <div class="letter-card hidden" id="letterOpen">
+<!-- SURAT TERBUKA -->
+<div class="letter-card hidden" id="letterOpen">
     <h2>💖 Surat Ini Untukmu 💖</h2>
     <p>
-      <!-- ✏️ EDIT ISI SURAT DI SINI -->
-      Hai kamu,<br><br>
-      Ini adalah surat yang aku buat dengan senang hati.
-      Aku hanya ingin menyampaikan beberapa ungkapan isi hati ku.
-      Aku ingin mengucapkan terima kasih karena telah menemani ku bermain game saat aku ini bingung mau main apa, 
-      Dan aku ingin mengucapkan terima kasih karena kamu sudah membuat hari hari saya ini luar biasa. 
-      Asalkan kamu tau ya dulu whatsapp saya itu sepiii tapi sejak ada kamu itu whatsapp saya jadi ada yang nge chat
-      Walaupun sebelumnya sempat akan asing tapi aku ini harap agar kita ini tidak asing dan menjadi best friend terus kalo bisa. 
-
-
-      Omong omong nanti siang nyalain streak boss 🔥🔥
-      <br><br>
-      From your best friend 
+        Hai kamu,<br><br>
+        Ini adalah surat yang aku buat dengan senang hati.
+        Aku hanya ingin menyampaikan beberapa ungkapan isi hati ku.<br><br>
+        Terima kasih karena telah menemani ku bermain game dan membuat hari-hariku luar biasa.<br><br>
+        Asal kamu tau ya sebelum ada kamu itu aku ini punya 2 aplikasi yang sama sekali tidak di pakai, <br><br>
+        Tapi setelah kamu datang 2 aplikasi itu menjadi aplikasi favorit yang aku buka setiap hari walaupun sebelumnya kita akan asing.<br><br>
+        Tapi dengan ini aku ingin menyampaikan agar kita tetap seperti dan tidak asing dan juga selalu menjadi best friend terus kalo mau.<br><br>
+        Omong-omong nanti siang nyalain streak boss 🔥🔥<br><br>
+        From your best friend 💛
     </p>
-  </div>
+</div>
 
-  <script src="script.js"></script>
+<!-- CREDIT -->
+<div class="credit">
+    Credit by Vigoo<br>
+    TikTok: @.ovidio_guzman
+</div>
+
+<script>
+// Tombol buka surat
+const openBtn = document.getElementById("openLetter");
+const letterClosed = document.getElementById("letterClosed");
+const letterOpen = document.getElementById("letterOpen");
+
+openBtn.addEventListener("click", () => {
+    letterClosed.classList.add("hidden");
+    letterOpen.classList.remove("hidden");
+});
+</script>
+
 </body>
 </html>
