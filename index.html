@@ -8,6 +8,26 @@
 </head>
 <body>
 
+  <div class="credit">
+    Credit by Vigoo<br>
+    TikTok: @.ovidio_guzman
+</div>
+
+<style>
+.credit{
+    position:fixed;       /* tetap berada di layar meski scroll */
+    bottom:25px;          /* jarak dari bawah layar */
+    left:50%;             /* center horizontal */
+    transform:translateX(-50%); /* benar-benar di tengah */
+    text-align:center;
+    font-size:12px;
+    opacity:0.7;
+    color:white;
+    line-height:1.4;
+    pointer-events:none;  /* agar tidak mengganggu klik tombol play */
+}
+  
+</style>
   <div class="letter-card" id="letterClosed">
     <div class="envelope">💌</div>
     <h2>Ada surat buat kamu</h2>
